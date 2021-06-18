@@ -4,6 +4,10 @@ const path = require("path");
 const logger = require("morgan");
 
 
+//router
+const adminRouter = require("../routes/adminRouter"); 
+const customerRouter = require("../routes/customerRouter"); 
+
 const app =  async (app) => {
   //this is the express server service
   app.set("views", path.join(__dirname, "../views"));
@@ -18,6 +22,9 @@ const app =  async (app) => {
   app.get("/", (req, res, next) => {
     res.render("index");
   });
+
+  app.use('/admin', adminRouter);
+  app.use('/customer', customerRouter);
 
   // catch 404 and forward to error handler
   app.use(function (req, res, next) {
