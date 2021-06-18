@@ -35,7 +35,6 @@ module.exports.AdminSignUp = async (req, res, next) => {
     }
 }
 
-
 module.exports.AdminLogin = async (req, res, next) => {
     try {
         const { email, password } = req.body;
